@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta content="asheshwor(asheshwor@gmail.com)" name="AUTHOR" url="asheshwor.com.np">
+    <meta content="azimuth, altitude, hour angle, sun position calculator, sun angle calculator, solar calculator, declination, solar angles, equation of time, inclination, java scripts" name="KEYWORDS">
+    <meta content="This script calculates various solar angles like altitude, azimuth, horizontal shadow angle etc. and also gives the value of sunrise time, sunset time, sunrise azimuth angles etc." name="DESCRIPTION">
+    <script src="code/np_convert.js"></script>
+    <title>Nepali units conversion</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+<link href="css/sticky-footer.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body onload="loadPage();">
+<div class="container">
+    <h1>Nepali units conversion</h1>
+    <p>Enter the value and select unit to convert. Press tab to convert. To swicth to and from units, press Invert button. You can also input source value in municipality format.</p>
+  </div>
+    <div id="exTab3" class="container">
+<ul  class="nav nav-pills">
+			<li class="active">
+        <a  href="#1a" data-toggle="tab">Convert area</a>
+			</li>
+			<li><a href="#2a" data-toggle="tab">Convert length</a>
+			</li>
+    </ul>
+      <div class="tab-content clearfix">
+			  <div class="tab-pane active" id="1a">
+          <form name="convertArea" class="navbar-form navbar-left">
+            <div class="form-group">
+            <input name=inBox value=1 size="10" onPress="updateConvert2();" onChange="updateConvert2();" class="form-control"><select name=inputUnit onChange="updateConvert2();"  class="form-control">
+          <OPTION VALUE="Acre">एकर</OPTION>
+          <OPTION VALUE="Ana">आना</OPTION>
+          <OPTION VALUE="Bigha">बिघा</OPTION>
+          <OPTION VALUE="Dam">दाम</OPTION>
+          <OPTION VALUE="Dhur">धुर</OPTION>
+          <OPTION VALUE="Hectare">हेक्टर</OPTION>
+          <OPTION VALUE="Kattha">कठ्ठा</OPTION>
+          <OPTION VALUE="Mato Muri">माटो मुरि</OPTION>
+          <OPTION VALUE="Paisa">पैसा</OPTION>
+          <OPTION SELECTED VALUE="Ropani">रोपनि</OPTION>
+          <OPTION VALUE="sq. feet">बर्ग फिट</OPTION>
+          <OPTION VALUE="sq. inches">बर्ग ईन्च</OPTION>
+          <OPTION VALUE="sq. meter">बर्ग मिटर</OPTION>
+          <OPTION VALUE="sq. miles">बर्ग माइल</OPTION>
+          </select>&raquo;<input name=outBox size="10" value=0 class="form-control"><select name=outputUnit onChange="updateConvert2();"  class="form-control">
+          <OPTION VALUE="Acre">एकर</OPTION>
+          <OPTION VALUE="Ana">आना</OPTION>
+          <OPTION VALUE="Bigha">बिघा</OPTION>
+          <OPTION VALUE="Dam">दाम</OPTION>
+          <OPTION VALUE="Dhur">धुर</OPTION>
+          <OPTION VALUE="Hectare">हेक्टर</OPTION>
+          <OPTION VALUE="Kattha">कठ्ठा</OPTION>
+          <OPTION VALUE="Mato Muri">माटो मुरि</OPTION>
+          <OPTION VALUE="Paisa">पैसा</OPTION>
+          <OPTION VALUE="Ropani">रोपनि</OPTION>
+          <OPTION SELECTED VALUE="sq. feet">बर्ग फिट</OPTION>
+          <OPTION VALUE="sq. inches">बर्ग ईन्च</OPTION>
+          <OPTION VALUE="sq. meter">बर्ग मिटर</OPTION>
+          <OPTION VALUE="sq. miles">बर्ग माइल</OPTION>
+          </select>&nbsp;<input type=button value="Invert" id=button2 name=button1 onClick="doInvertArea();" class="form-control">
+        </div>
+        </form>
+        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="2">
+        <TR><TD><form name="municipal"><span style="color:#0B3877;font-family:verdana, arial;font-weight:bold;font-size:14px"> नगरपालिका Formats for Plot Area:</span><br><input name=M1 size="15" value="0-0-0-0" ><span style="color:#0B3877;font-family:verdana, arial;font-weight:bold;font-size:12px"> (Ropani-Ana-Paisa-Dam)</span><br><input name=M2 size="15" value="0-0-0-0" ><span style="color:#0B3877;font-family:verdana, arial;font-weight:bold;font-size:12px"> (Bigha-Kattha-Dhur)</span>
+        </TD></TR></form>
+        <TR align=right><TD>
+        <form name="municipalRev"><span style="color:#0B3877;font-family:verdana, arial;font-weight:bold;font-size:14px">नगरपालिका Formats Reverse Calculation:</span><br><input name=M1a size="4" value="0" ><span style="color:#0B3877;font-family:verdana, arial;font-weight:bold;font-size:12px"> Ropani </span>
+        <input name=M1b size="4" value="0" ><span style="color:#0B3877;font-family:verdana, arial;font-weight:bold;font-size:12px"> Ana </span>
+        <input name=M1c size="5" value="0" ><span style="color:#0B3877;font-family:verdana, arial;font-weight:bold;font-size:12px"> Paisa </span>
+        <input name=M1d size="5" value="0" ><span style="color:#0B3877;font-family:verdana, arial;font-weight:bold;font-size:12px"> Dam </span><input type=button value="Update" id=button4 name=button1 onClick="doUpdateAreaM1();"  ><br><input name=M2a size="5" value="0" ><span style="color:#0B3877;font-family:verdana, arial;font-weight:bold;font-size:12px"> Bigha</span>
+        <input name=M2b size="5" value="0" ><span style="color:#0B3877;font-family:verdana, arial;font-weight:bold;font-size:12px"> Kattha</span>
+        <input name=M2c size="5" value="0" ><span style="color:#0B3877;font-family:verdana, arial;font-weight:bold;font-size:12px"> Dhur</span>
+        <input type=button value="Update" id=button5 name=button5 onClick="doUpdateAreaM2();"  >
+        </td></tr></form>
+      </table>
+				</div>
+        <div class="tab-pane" id="2a">
+          <form name="convertLength">
+          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="2">
+          <TR><TD><input name=inBox value=1 size="15" onChange="updateConvert();" ></TD><TD><select name=inputUnit onChange="updateConvert();">
+          <OPTION VALUE="centimeter">centimeter</OPTION>
+          <OPTION VALUE="feet">feet</OPTION>
+          <OPTION VALUE="inch">inch</OPTION>
+          <OPTION VALUE="kilometer">kilometer</OPTION>
+          <OPTION SELECTED VALUE="meter">meter</OPTION>
+          <OPTION VALUE="miles">miles</OPTION>
+          <OPTION VALUE="milimeter">milimeter</OPTION>
+          <OPTION VALUE="yards">yards</OPTION>
+          </select></TD><TD>&raquo;</TD><TD><input name=outBox value=0 size="15" ></TD><TD><select name=outputUnit onChange="updateConvert();"  >
+          <OPTION VALUE="centimeter">centimeter</OPTION>
+          <OPTION SELECTED VALUE="feet">feet</OPTION>
+          <OPTION VALUE="inch">inch</OPTION>
+          <OPTION VALUE="kilometer">kilometer</OPTION>
+          <OPTION VALUE="meter">meter</OPTION>
+          <OPTION VALUE="miles">miles</OPTION>
+          <OPTION VALUE="milimeter">milimeter</OPTION>
+          <OPTION VALUE="yards">yards</OPTION>
+          </select></TD><td>&nbsp;<input type="button" value="Invert" id="button1" name="button1" onClick="doInvertLength();"  ></td></TR>
+          <tr><td colspan=3>&nbsp;</td><td align='left' colspan='3'><input ID='gin' name="breakF" size="15" value="feet" > architectural format</td></tr></table>
+          </form>
+				</div>
+      </div>
+</div>
+<br>
+<div class="container">
+<form name=fix>Output decimal place:
+<select name=fixValue onChange="updateConvert(); updateConvert2();"  >
+<OPTION VALUE="0">0</OPTION>
+<OPTION VALUE="1">1</OPTION>
+<OPTION VALUE="2">2</OPTION>
+<OPTION SELECTED VALUE="3">3</OPTION>
+<OPTION VALUE="4">4</OPTION>
+<OPTION VALUE="5">5</OPTION>
+<OPTION VALUE="6">6</OPTION>
+<OPTION VALUE="7">7</OPTION>
+<OPTION VALUE="8">8</OPTION>
+<OPTION VALUE="9">9</OPTION>
+<OPTION VALUE="10">10</OPTION></select>
+&nbsp;
+<input type="button" value=": : Clear Log : :" onClick="clearBank();">
+<TEXTAREA name=bank rows=8 cols=70> : : : Conversion Script : : :</TEXTAREA>
+</FORM>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted"><a href="https://github.com/asheshwor/solar-calculator">Code</a> by Asheshwor. Distributed under the terms of the <a href="https://github.com/asheshwor/solar-calculator/blob/master/LICENSE">MIT license</a></p>
+  </div>
+</footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
