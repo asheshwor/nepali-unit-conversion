@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,24 +22,26 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body onload="loadPage()">
+  <body onload="loadPage();">
 <div class="container">
     <h1>Nepali units conversion</h1>
     <p>Enter the value and select unit to convert. Press tab to convert. To swicth to and from units, press Invert button. You can also input source value in municipality format.</p>
-  </div>
+    </div>
     <div id="exTab3" class="container">
 <ul  class="nav nav-pills">
 			<li class="active">
-          <a  href="#1a" data-toggle="tab">Area conversion</a>
+        <a  href="#convertArea" data-toggle="tab">Convert area</a>
 			</li>
-			<li><a href="#2a" data-toggle="tab">Length conversion</a>
+			<li><a href="#convertLengthTab" data-toggle="tab">Convert length</a>
 			</li>
     </ul>
+
       <div class="tab-content clearfix">
-			  <div class="tab-pane active" id="1a">
-          <form name="convertArea" class="form-inline">
+			  <div class="tab-pane active" id="convertArea">
+          <form name="convertArea" class="navbar-form navbar-left">
             <div class="form-group">
-            <input name=inBox value=1 size="10" onPress="updateConvert2();" onChange="updateConvert2();" class="form-control"><select name=inputUnit onChange="updateConvert2();"  class="form-control">
+            <input name="inBox" value=1 size="10" onPress="updateConvert2();" onChange="updateConvert2();" class="form-control"><select name=inputUnit onChange="updateConvert2();"  class="form-control">
+              &nbsp;
           <OPTION VALUE="Acre">एकर</OPTION>
           <OPTION VALUE="Ana">आना</OPTION>
           <OPTION VALUE="Bigha">बिघा</OPTION>
@@ -55,7 +56,7 @@
           <OPTION VALUE="sq. inches">बर्ग ईन्च</OPTION>
           <OPTION VALUE="sq. meter">बर्ग मिटर</OPTION>
           <OPTION VALUE="sq. miles">बर्ग माइल</OPTION>
-        </select> <label for="outBox">to</label> <input name="outBox" size="10" value=0 class="form-control"><select name=outputUnit onChange="updateConvert2();" class="form-control">
+        </select> to <input name=outBox size="10" value=0 class="form-control"><select name=outputUnit onChange="updateConvert2();"  class="form-control">
           <OPTION VALUE="Acre">एकर</OPTION>
           <OPTION VALUE="Ana">आना</OPTION>
           <OPTION VALUE="Bigha">बिघा</OPTION>
@@ -72,33 +73,31 @@
           <OPTION VALUE="sq. miles">बर्ग माइल</OPTION>
           </select>&nbsp;<input type=button value="Invert" id=button2 name=button1 onClick="doInvertArea();" class="btn btn-lg btn-success">
         </div>
+      </form><br>
+        <form name="municipal" class="navbar-form navbar-left">Municpal formats for plot area:
+          <div class="form-group"><input name=M1 size="15" value="0-0-0-0" class="form-control"> (Ropani-Ana-Paisa-Dam)<br><input name=M2 size="15" value="0-0-0-0" class="form-control">(Bigha-Kattha-Dhur)
+          </div>
         </form>
-        <form name="municipal" class="form-inline">
-          <h4 class="form-text">Conversion from municipal formats</h4>
-          <div class="form-group">
-            <label for="M1">Ropani-Ana-Paisa-Dam</label>
-            <input name="M1" size="10" value="0-0-0-0" class="form-control">
-          <br>
-          <label for="M2">Bigha-Kattha-Dhur</label>
-          <input name="M2" size="10" value="0-0-0-0" class="form-control">
-        </div>
-        </form>
-        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="2">
-        <TR align=right><TD>
-        <form name="municipalRev">Municipality Formats Reverse Calculation:<br><input name=M1a size="4" value="0" > Ropani
-        <input name=M1b size="4" value="0" >Ana
-        <input name=M1c size="5" value="0" >Paisa
-        <input name=M1d size="5" value="0" >Dam<input type=button value="Update" id=button4 name=button1 onClick="doUpdateAreaM1();"><br><input name=M2a size="5" value="0" >Bigha
-        <input name=M2b size="5" value="0" >Kattha
-        <input name=M2c size="5" value="0" >Dhur
+        <form name="municipalRev" class="navbar-form navbar-left">
+          <div class="form-group">Municipal formats reverse calculation:<input name=M1a size="4" value="0" class="form-control">Ropani
+        <input name=M1b size="4" value="0" class="form-control">Aana
+        <input name=M1c size="5" value="0" class="form-control">Paisa
+        <input name=M1d size="5" value="0" class="form-control">Dam
+        <input type=button value="Update" id=button4 name=button1 onClick="doUpdateAreaM1()">
+      </div>
+        <div class="form-group">
+        <input name=M2a size="5" value="0" class="form-control">Bigha
+        <input name=M2b size="5" value="0" class="form-control">Kattha
+        <input name=M2c size="5" value="0" class="form-control">Dhur
         <input type=button value="Update" id=button5 name=button5 onClick="doUpdateAreaM2()">
-        </td></tr></form>
-      </table>
+</div>
+      </form>
 				</div>
-        <div class="tab-pane" id="2a">
-          <form name="convertLength">
-          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="2">
-          <TR><TD><input name=inBox value=1 size="10" onChange="updateConvert();" class="form-control"></TD><TD><select name=inputUnit onChange="updateConvert();" class="form-control">
+        <div class="tab-pane" id="convertLengthTab">
+          <form name="convertLength" class="navbar-form navbar-left">
+            <div class="form-group">
+          <input name=inBoxLen value=1 size="10" onChange="updateConvert();" class="form-control">
+          <select name=inputUnit onChange="updateConvert();" class="form-control">
           <OPTION VALUE="centimeter">centimeter</OPTION>
           <OPTION VALUE="feet">feet</OPTION>
           <OPTION VALUE="inch">inch</OPTION>
@@ -107,7 +106,9 @@
           <OPTION VALUE="miles">miles</OPTION>
           <OPTION VALUE="milimeter">milimeter</OPTION>
           <OPTION VALUE="yards">yards</OPTION>
-        </select></TD><TD> <label for="outBox"> to </label> </TD><TD><input name=outBox value=0 size="10" class="form-control"></TD><TD><select name=outputUnit onChange="updateConvert();" class="form-control">
+        </select> to
+        <input name=outBox value=0 size="10" class="form-control">
+        <select name=outputUnit onChange="updateConvert();" class="form-control">
           <OPTION VALUE="centimeter">centimeter</OPTION>
           <OPTION SELECTED VALUE="feet">feet</OPTION>
           <OPTION VALUE="inch">inch</OPTION>
@@ -116,15 +117,20 @@
           <OPTION VALUE="miles">miles</OPTION>
           <OPTION VALUE="milimeter">milimeter</OPTION>
           <OPTION VALUE="yards">yards</OPTION>
-          </select></TD><td>&nbsp;<input type="button" value="Invert" id="button1" name="button1" onClick="doInvertLength();" class="btn btn-lg btn-success"></td></TR>
-          <tr><td colspan=3>&nbsp;</td><td align='left' colspan='3' ><input ID='gin' name="breakF" size="15" value="feet" class="form-control"> architectural format</td></tr></table>
+          </select>
+          <input type="button" value="Invert" id="button1" name="button1" onClick="doInvertLength();" class="btn btn-lg btn-success">
+        </div>
+          <div class="form-group">
+            Output in architectural format: <input ID='gin' name="breakF" size="15" value="feet" class="form-control">
+        </div>
           </form>
 				</div>
       </div>
-</div>
+    </div>
 <div class="container">
-<form name="fix">Output decimal place:
-<select name=fixValue onChange="updateConvert(); updateConvert2();">
+<form name="fix" class="navbar-form navbar-left">
+  <div class="form-group">Output decimal place:
+<select name=fixValue onChange="updateConvert(); updateConvert2();" class="form-control">
 <OPTION VALUE="0">0</OPTION>
 <OPTION VALUE="1">1</OPTION>
 <OPTION VALUE="2">2</OPTION>
@@ -137,7 +143,8 @@
 <OPTION VALUE="9">9</OPTION>
 <OPTION VALUE="10">10</OPTION></select>
 <input type="button" value="Clear log" onClick="clearBank();" class="btn btn-lg btn-danger">
-<TEXTAREA name=bank rows=8 cols=70 class="form-control"> : : : Calculaton log : : :</TEXTAREA>
+<TEXTAREA name=bank rows=8 cols=88 class="form-control"></TEXTAREA>
+</div>
 </FORM>
 </div>
 <footer class="footer">
