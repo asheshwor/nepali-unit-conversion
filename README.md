@@ -10,7 +10,7 @@ Check it live at [asheshwor.github.io/nepali-unit-conversion] (http://asheshwor.
 
 ## Screenshot
 
-![page screenshot] (img/screenshot.png)
+![page screenshot] (img/screen01.png)
 
 ## License
 
