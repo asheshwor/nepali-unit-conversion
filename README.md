@@ -1,6 +1,6 @@
 # Nepali unit conversion
 
-A tool for converting between different units of length and area common in Nepal. Built using JavaScript, this includes conversion between Nepali units of area like Ropani, Paisa, Kattha etc. to and from common units like square meter, square feet and hectare. The conversion factors are based on the Statistical Pocket Book published by the [Central Bureau Of Statistics] (http://cbs.gov.np/publications/Statistical%20Pocket%20Book%202014), Kathmandu, Nepal.
+A tool for converting between different units of length and area common in Nepal. Built using JavaScript, this includes conversion between Nepali units for area like Ropani, Paisa, Kattha etc. to and from SI and Imperial units like square meter, square feet and hectare. The conversion factors are based on the Statistical Pocket Book published by the [Central Bureau Of Statistics] (http://cbs.gov.np/publications/Statistical%20Pocket%20Book%202014), Kathmandu, Nepal.
 
 The JavaScript code was written in the early 2000s but still seem to work on modern browsers.
 
@@ -10,7 +10,7 @@ Check it live at [asheshwor.github.io/nepali-unit-conversion] (http://asheshwor.
 
 ## Screenshot
 
-![page screenshot] (img/screen01.png)
+![page screenshot](img/screen01.png)
 
 ## License
 
